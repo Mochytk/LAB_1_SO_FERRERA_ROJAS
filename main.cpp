@@ -4,39 +4,35 @@
 #include <filesystem>
 #include <fstream>
 
+using namespace std;
 using namespace std::filesystem;
 
 int main(){
-
-    // Ruta de carpeta
-    path carpeta = "PROBANDO";
-
+    // crear carpeta base
+    path carpeta = "Output";
     // Si no existe, crear la carpeta
-    if (!std::filesystem::exists(carpeta)) {
-        std::filesystem::create_directory(carpeta); 
-        std::cout << "Carpeta creada: " << carpeta 
-             << std::endl; 
+    if (!exists(carpeta)) {
+        create_directory(carpeta); 
     }
 
-    // Nombre del archivo dentro de la carpeta
-    std::filesystem::path ruta_archivo = carpeta / "archivo.txt"; 
+    // Mostrar contenidos carpeta
+    for (const auto &i : directory_iterator("General")) {
+        ifstream archivo(i.path());  // Abrir el archivo directamente
 
-    // Crear el archivo
+        string linea;
+        while (getline(archivo, linea)) {  // Leer todas las líneas
+            if (linea.find("tipo:")){
 
-    std::ofstream archivo(ruta_archivo);
+            }
+            else if (linea.find("numero:")){
 
-    // Si el archivo se abrió
-    if (archivo.is_open()) {
-        archivo << "probando\n";
-        archivo.close();
-        std::cout << "Archivo creado!" << std::endl;
+            }
+            else if (linea.find("semestre_publicacion:")){
 
+            }
+        }
     }
-    
-    // Si no
-    else {
-        std::cout << "Error al abrir el archivo!" << std::endl;
-    }
+
 
     return 0;
 }
