@@ -1,11 +1,13 @@
-
-
 #include <iostream>
 #include <filesystem>
 #include <fstream>
 
 using namespace std;
+<<<<<<< Updated upstream
 using namespace std::filesystem;
+=======
+namespace fs = std::filesystem;
+>>>>>>> Stashed changes
 
 void crear_output(){
     //crear carpeta output
@@ -69,10 +71,52 @@ void trabajar_archivo(ifstream &archivo){
 int main(){
     crear_output();
 
+<<<<<<< Updated upstream
     // Mostrar contenidos carpeta
     for (const auto &entrada : directory_iterator("General")) {
         ifstream archivo(entrada.path());  // Abrir el archivo
         trabajar_archivo(archivo);
     }
+=======
+    /*
+    Vamos de a poco:
+        - Primero leer la carpeta Pruebas/General
+        - Empezar a leer archivo a archivo
+        - Si encontramos las condiciones de Certamen, Control o Tarea
+          la movemos
+        - Si no, a la carpeta corruptos
+        - y ya.
+    */
+
+    // Ruta de carpeta
+    fs::path carpeta = "Pruebas";
+
+    // Si no existe, crear la carpeta
+    if (!fs::exists(carpeta)) {
+        fs::create_directory(carpeta); 
+        cout << "Carpeta creada: " << carpeta << "\n"; 
+    }
+
+    // Nombre del archivo dentro de la carpeta
+    fs::path ruta_archivo = carpeta / "archivo.txt"; 
+
+    // Crear el archivo
+
+    ofstream archivo(ruta_archivo);
+
+    // Si el archivo se abrió
+    if (archivo.is_open()) {
+        archivo << "probando\n";
+        archivo.close();
+        cout << "Archivo creado!" << endl;
+
+    }
+    
+    // Si no
+    else {
+        cout << "Error al abrir el archivo!" << endl;
+    }
+
+>>>>>>> Stashed changes
     return 0;
 }
