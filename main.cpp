@@ -3,11 +3,8 @@
 #include <fstream>
 
 using namespace std;
-<<<<<<< Updated upstream
 using namespace std::filesystem;
-=======
 namespace fs = std::filesystem;
->>>>>>> Stashed changes
 
 void crear_output(){
     //crear carpeta output
@@ -69,15 +66,14 @@ void trabajar_archivo(ifstream &archivo){
 }
 
 int main(){
+    
     crear_output();
-
-<<<<<<< Updated upstream
     // Mostrar contenidos carpeta
     for (const auto &entrada : directory_iterator("General")) {
         ifstream archivo(entrada.path());  // Abrir el archivo
         trabajar_archivo(archivo);
     }
-=======
+
     /*
     Vamos de a poco:
         - Primero leer la carpeta Pruebas/General
@@ -117,6 +113,6 @@ int main(){
         cout << "Error al abrir el archivo!" << endl;
     }
 
->>>>>>> Stashed changes
+
     return 0;
 }
