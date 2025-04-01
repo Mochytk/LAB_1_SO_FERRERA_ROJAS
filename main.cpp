@@ -65,21 +65,13 @@ void mover_archivo_tarea(ifstream &archivo, string destino, string nombre){
     if (!exists(carpeta)) {
         create_directory(carpeta); 
     }
-
-    // aqui hay que cambiar el nombre asi que probablemente
-    // necesites el tipo, numero y nombre, dependiendo si es
-    // certamen, control o tarea, asi que habria que agregarlos
-    // como parametros.
-
-    //probablemente lo mejor seria crear una función por cada
-    //tipo de archivo pero me da paja hacerlo. <3
     
     // Obtener el path original del archivo
     path archivo_origen = archivo.tellg();
     // Crear el path del archivo destino
     path archivo_destino = carpeta / nombre;
     // Mover y renombrar el archivo
-    fs::rename(archivo_origen, archivo_destino);
+    rename(archivo_origen, archivo_destino);
     cout << "Archivo movido a: " << archivo_destino << endl;
 }
 
@@ -141,7 +133,7 @@ void trabajar_archivo(ifstream &archivo){
         mover_corrupto(archivo);
     }
     else if (tipo == "certamen" || tipo == "control"){
-        mover_archivo_certamen_control(archivo, carpeta_destino, numero, tipo, semestre>);
+        mover_archivo_certamen_control(archivo, carpeta_destino, numero, tipo, semestre);
     }
     else {
         mover_archivo_tarea(archivo, carpeta_destino, nombre);
