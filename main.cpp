@@ -105,11 +105,13 @@ void trabajar_archivo(const path& file_path) {
         carpeta_destino = "Output/Archivos Corruptos";
     }
 
-    if (carpeta_destino == "Output/Archivos Corruptos") {
+    if (carpeta_destino == "Output/Archivos Corruptos" || semestre > "2025-1") {
         mover_corrupto(file_path);
-    } else if (tipo == "certamen" || tipo == "control") {
+    } 
+    else if (tipo == "certamen" || tipo == "control") {
         mover_archivo_certamen_control(file_path, carpeta_destino, numero, tipo, semestre);
-    } else {
+    }
+    else {
         mover_archivo_tarea(file_path, carpeta_destino, nombre);
     }
 }
