@@ -1,7 +1,6 @@
 #include <iostream>
 #include <filesystem>
 #include <fstream>
-#include <vector>
 
 using namespace std;
 using namespace std::filesystem;
