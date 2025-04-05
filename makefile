@@ -1,12 +1,12 @@
 # Variables
 CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++17
-TARGET = main
+TARGET = LAB1_Rojas_Ferrera
 
 # Compilar el programa
 all: $(TARGET)
 
-$(TARGET): main.cpp
+$(TARGET): LAB1_Rojas_Ferrera.cpp
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 # Limpiar archivos generados
