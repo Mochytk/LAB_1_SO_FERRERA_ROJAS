@@ -1,6 +1,6 @@
 Integrantes:
 Sergio Rojas 202273619-4 P.200
-Martín Ferrera 202273552-k P.200
+Martín Ferrera 202273552-K P.200
 
 Usamos la libreria filesystem para crear las carpetas y mover los archivos.
 
